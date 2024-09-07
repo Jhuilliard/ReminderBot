@@ -21,8 +21,6 @@ async def schedule_daily_message():
       x = "M-Day"
     if now.year == 2025 and now.month == 6 and now.day == 16:
       x = "D-Day"
-    if now.year == 2024 and now.month == 8 and now.day == 24:
-      x = "HAHA IT WORKED"
     if now.year == 2024 and now.month == 12 and now.day == 18:
       x = "XMAS - 1 week"
     if now.year == 2024 and now.month == 12 and now.day == 25:
@@ -42,8 +40,6 @@ async def schedule_daily_message():
       await send_message(user, "IT'S MOTHER'S DAY! TELL MOM YOU LOVE HER!!!")
     if x == "M-Day":
       await send_message(user, "IT'S FATHER'S DAY! TELL DAD YOU LOVE HER!!!")
-    if x == "HAHA IT WORKED":
-      await send_message(user, "HAHA IT WORKED")
     if x == "XMAS - 1 week":
       await send_message(user, "CHRISTMAS IS COMING UP! ITS 1 WEEK LEFT!!!")
     if x == "XMAS":
