@@ -2,7 +2,10 @@ import os
 import discord
 import asyncio
 import datetime
+from dotenv import load_dotenv
 
+load_dotenv()
+token = os.getenv('TOKEN')
 client = discord.Client()
 x=''
 
@@ -50,5 +53,3 @@ async def schedule_daily_message():
 async def on_ready():
   print(f'We have logged in as {client.user}')
   asyncio.create_task(schedule_daily_message())
-
-client.run(os.getenv('DISCORD_BOT_TOKEN'))
