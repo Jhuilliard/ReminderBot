@@ -51,4 +51,4 @@ async def on_ready():
   print(f'We have logged in as {client.user}')
   asyncio.create_task(schedule_daily_message())
 
-client.run(os.getenv('PASTE_YOUR_TOEKN_HERE'))
+client.run(os.getenv('DISCORD_BOT_TOKEN'))
