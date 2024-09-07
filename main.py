@@ -10,7 +10,6 @@ YOUR_USER_ID = "PASTE_YOUR_USER_ID_HERE"
 
 
 async def send_message(user, message):
-  """Sends a message to a user's Direct Message channel."""
   await user.send(message)
 
 
@@ -29,7 +28,7 @@ async def schedule_daily_message():
     if now.year == 2024 and now.month == 12 and now.day == 25:
       x = "XMAS" 
 
-    target_time = now.replace(hour=4, minute=46, second=0, microsecond=0)
+    target_time = now.replace(hour=13, minute=0, second=0, microsecond=0)
 
     if now.date() == target_time.date() and now > target_time:
       target_time += datetime.timedelta(days=1)
