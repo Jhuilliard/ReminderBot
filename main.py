@@ -6,12 +6,12 @@ from dotenv import load_dotenv
 from discord.ext import commands
 
 load_dotenv()
-token = os.getenv('TOKEN')
+DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+USER_ID = os.getenv('USER_ID')
 
 x=''
 intents = discord.Intents.all()
 client = commands.Bot(command_prefix=',', intents=intents)
-YOUR_USER_ID = "PASTE_YOUR_USER_ID_HERE"
 
 
 async def send_message(user, message):
@@ -20,7 +20,7 @@ async def send_message(user, message):
 
 async def schedule_daily_message(): 
   while True:
-    user = await client.fetch_user(YOUR_USER_ID)
+    user = await client.fetch_user(USER_ID)
     now = datetime.datetime.now()
     if now.year == 2025 and now.month == 5 and now.day == 11:
       x = "M-Day"
@@ -31,7 +31,7 @@ async def schedule_daily_message():
     if now.year == 2024 and now.month == 12 and now.day == 25:
       x = "XMAS" 
 
-    target_time = now.replace(hour=13, minute=0, second=0, microsecond=0)
+    target_time = now.replace(hour=4, minute=0, second=0, microsecond=0)
 
     if now.date() == target_time.date() and now > target_time:
       target_time += datetime.timedelta(days=1)
@@ -56,4 +56,4 @@ async def on_ready():
   print(f'We have logged in as {client.user}')
   asyncio.create_task(schedule_daily_message())
   
-client.run(os.getenv('PASTE_YOUR_BOT_TOKEN'))
+client.run(DISCORD_BOT_TOKEN)
